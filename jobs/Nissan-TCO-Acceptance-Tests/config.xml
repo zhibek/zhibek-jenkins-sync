@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>   </description>
+  <logRotator class="hudson.tasks.LogRotator">
+    <daysToKeep>-1</daysToKeep>
+    <numToKeep>100</numToKeep>
+    <artifactDaysToKeep>-1</artifactDaysToKeep>
+    <artifactNumToKeep>-1</artifactNumToKeep>
+  </logRotator>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.security.AuthorizationMatrixProperty/>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.2.12">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>git@github.com:zhibek/N-TCO-Acceptance-Tests.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>**</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions>
+      <hudson.plugins.git.extensions.impl.PerBuildTag/>
+    </extensions>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>true</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>## install composer dependencies (if not already installed)
+php composer.phar install
+
+## clean up old processes
+pkill -f selenium-server-standalone 2&gt;&amp;1 || true
+pkill -f chromedriver 2&gt;&amp;1 || true
+#pkill Xvfb 2&gt;&amp;1 || true
+
+## flush build directory
+rm -fr build
+mkdir build
+
+## start processes
+export DISPLAY=:7.0
+Xvfb :7 -ac -screen 0 1024x768x24 &gt; /dev/null 2&gt;&amp;1 &amp;
+sleep 2
+java -jar selenium/selenium-server-standalone-2.37.0.jar -Dwebdriver.chrome.driver=&quot;/usr/bin/chromedriver&quot; &gt; /dev/null 2&gt;&amp;1 &amp;
+sleep 2
+
+## start tests
+bin/behat --profile ci
+
+## clean up processes
+pkill -f selenium-server-standalone 2&gt;&amp;1 || true
+pkill -f chromedriver 2&gt;&amp;1 || true
+pkill Xvfb 2&gt;&amp;1 || true</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>build/*</artifacts>
+      <allowEmptyArchive>true</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <fingerprint>false</fingerprint>
+      <defaultExcludes>true</defaultExcludes>
+    </hudson.tasks.ArtifactArchiver>
+    <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.2-beta-4">
+      <testResults>build/junit/*.xml</testResults>
+      <keepLongStdio>false</keepLongStdio>
+      <testDataPublishers/>
+    </hudson.tasks.junit.JUnitResultArchiver>
+    <net.masterthought.jenkins.CucumberReportPublisher plugin="cucumber-reports@0.4.0">
+      <jsonReportDirectory>build/junit</jsonReportDirectory>
+      <pluginUrlPath></pluginUrlPath>
+      <skippedFails>false</skippedFails>
+      <pendingFails>false</pendingFails>
+      <undefinedFails>false</undefinedFails>
+      <missingFails>false</missingFails>
+      <noFlashCharts>true</noFlashCharts>
+      <ignoreFailedTests>false</ignoreFailedTests>
+      <parallelTesting>false</parallelTesting>
+    </net.masterthought.jenkins.CucumberReportPublisher>
+  </publishers>
+  <buildWrappers/>
+</project>
