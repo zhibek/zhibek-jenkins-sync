@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <logRotator class="hudson.tasks.LogRotator">
+    <daysToKeep>-1</daysToKeep>
+    <numToKeep>100</numToKeep>
+    <artifactDaysToKeep>-1</artifactDaysToKeep>
+    <artifactNumToKeep>-1</artifactNumToKeep>
+  </logRotator>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.security.AuthorizationMatrixProperty>
+      <permission>hudson.model.Item.Cancel:essence</permission>
+      <permission>hudson.model.Item.Delete:essence</permission>
+      <permission>hudson.model.Item.Read:essence</permission>
+      <permission>hudson.model.Run.Delete:essence</permission>
+      <permission>hudson.model.Item.Workspace:essence</permission>
+      <permission>hudson.model.Item.Build:essence</permission>
+      <permission>hudson.scm.SCM.Tag:essence</permission>
+      <permission>hudson.model.Item.Configure:essence</permission>
+      <permission>hudson.model.Item.Discover:essence</permission>
+      <permission>hudson.model.Run.Update:essence</permission>
+    </hudson.security.AuthorizationMatrixProperty>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.13.3">
+      <projectUrl>https://github.com/essence-tech/essence-scrutineer/</projectUrl>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.2.12">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>git@github.com:essence-tech/essence-scrutineer</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>**</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>true</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.13.3">
+      <spec></spec>
+    </com.cloudbees.jenkins.GitHubPushTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>## Unit tests failing on CI due to incorrect version of Python
+#echo &quot;Running unit tests&quot;
+#/usr/bin/goapp test ./thunder
+
+echo &quot;Deploying to http://essence-scrutineer-dev.appspot.com/&quot;
+export PATH=/opt/go_appengine:$PATH
+export GOPATH=/opt/go_appengine/gopath
+DEPLOY_FILE=&quot;./deploy-dev.sh&quot;
+if [ -f $DEPLOY_FILE ];
+then
+   echo &quot;File $DEPLOY_FILE exists. Using it to generate a list of yaml files to use in deployment&quot;
+   $DEPLOY_FILE
+else
+   echo &quot;File $DEPLOY_FILE does not exist. just deploy the app.yaml file&quot;
+   /opt/go_appengine/appcfg.py update . --oauth2 --noauth_local_webserver --skip_sdk_update_check --email=john.levermore@camelcasetech.com --application essence-scrutineer-dev --version 1 --verbose
+fi
+#export GOPATH=/opt/go_appengine/gopath
+#/opt/go_appengine/appcfg.py update . --oauth2 --noauth_local_webserver --skip_sdk_update_check --email=john.levermore@camelcasetech.com --application essence-scrutineer-dev --version 1 --verbose
+
+echo &quot;Running acceptance tests&quot;
+# go to acceptance-tests and install (if not already installed)
+cd acceptance-tests
+php composer.phar install
+
+## clean up old processes
+pkill -f selenium-server-standalone 2&gt;&amp;1 || true
+pkill -f chromedriver 2&gt;&amp;1 || true
+pkill Xvfb 2&gt;&amp;1 || true
+
+## flush build directory
+rm -fr build
+mkdir build
+
+## start processes
+export DISPLAY=:6.0
+Xvfb :6 -ac -screen 0 1024x768x24 &gt; /dev/null 2&gt;&amp;1 &amp;
+sleep 2
+java -jar selenium/selenium-server-standalone-2.37.0.jar -Dwebdriver.chrome.driver=&quot;/usr/bin/chromedriver&quot; &gt; /dev/null 2&gt;&amp;1 &amp;
+sleep 2
+
+## start tests
+bin/behat --profile ci
+
+## clean up processes
+pkill -f selenium-server-standalone 2&gt;&amp;1 || true
+pkill -f chromedriver 2&gt;&amp;1 || true
+pkill Xvfb 2&gt;&amp;1 || true</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>acceptance-tests/build/*</artifacts>
+      <allowEmptyArchive>false</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <fingerprint>false</fingerprint>
+      <defaultExcludes>true</defaultExcludes>
+    </hudson.tasks.ArtifactArchiver>
+    <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.2-beta-4">
+      <testResults>acceptance-tests/build/junit/*.xml</testResults>
+      <keepLongStdio>false</keepLongStdio>
+      <testDataPublishers/>
+      <healthScaleFactor>1.0</healthScaleFactor>
+    </hudson.tasks.junit.JUnitResultArchiver>
+    <hudson.tasks.Mailer plugin="mailer@1.11">
+      <recipients>john.levermore@camelcasetech.com yassin.mohii@camelcasetech.com</recipients>
+      <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
+      <sendToIndividuals>false</sendToIndividuals>
+    </hudson.tasks.Mailer>
+    <com.cloudbees.jenkins.GitHubCommitNotifier plugin="github@1.13.3">
+      <resultOnFailure>FAILURE</resultOnFailure>
+    </com.cloudbees.jenkins.GitHubCommitNotifier>
+  </publishers>
+  <buildWrappers/>
+</project>
