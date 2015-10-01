@@ -65,12 +65,6 @@ mv magento/app/etc/dev.install.xml magento/app/etc/install.xml
     </hudson.tasks.Shell>
   </builders>
   <publishers>
-    <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.2-beta-4">
-      <testResults>/var/www/vhosts/teeshop-dev.zhibek.com/TEST-*.xml</testResults>
-      <keepLongStdio>false</keepLongStdio>
-      <testDataPublishers/>
-      <healthScaleFactor>1.0</healthScaleFactor>
-    </hudson.tasks.junit.JUnitResultArchiver>
     <com.cloudbees.jenkins.GitHubCommitNotifier plugin="github@1.13.3">
       <resultOnFailure>FAILURE</resultOnFailure>
     </com.cloudbees.jenkins.GitHubCommitNotifier>
