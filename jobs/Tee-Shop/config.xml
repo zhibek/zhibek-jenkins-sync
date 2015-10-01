@@ -69,20 +69,18 @@ pkill Xvfb 2&gt;&amp;1 || true
  rm -f TEST-*.xml
 
 # Run Selenium Server
- DISPLAY=:1 xvfb-run java -jar /var/www/vhosts/teeshop-dev.zhibek.com/selenium/selenium-server.jar &amp;
+ export DISPLAY=:7.0
+ Xvfb :7 -ac -screen 0 1024x768x24 &gt; /dev/null 2&gt;&amp;1 &amp;
+ sleep 2
+  java -jar ./selenium/selenium-server-standalone-2.37.0.jar -Dwebdriver.chrome.driver=&quot;/usr/bin/chromedriver&quot; &gt; /dev/null 2&gt;&amp;1 &amp;
+ sleep 2
 
 # Run behat tests
-./vendor/behat/behat/bin/behat --format junit --out ./ 
+./vendor/behat/behat/bin/behat  
 </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
-    <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.2-beta-4">
-      <testResults>/var/www/vhosts/teeshop-dev.zhibek.com/TEST-*.xml</testResults>
-      <keepLongStdio>false</keepLongStdio>
-      <testDataPublishers/>
-      <healthScaleFactor>1.0</healthScaleFactor>
-    </hudson.tasks.junit.JUnitResultArchiver>
     <com.cloudbees.jenkins.GitHubCommitNotifier plugin="github@1.13.3">
       <resultOnFailure>FAILURE</resultOnFailure>
     </com.cloudbees.jenkins.GitHubCommitNotifier>
