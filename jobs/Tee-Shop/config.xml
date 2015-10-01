@@ -65,9 +65,6 @@ mv magento/app/etc/dev.install.xml magento/app/etc/install.xml
 pkill -f selenium-server 2&gt;&amp;1 || true
 pkill Xvfb 2&gt;&amp;1 || true
 
-# Delete old test xml files
- rm -f TEST-*.xml
-
 # Run Selenium Server
  export DISPLAY=:7.0
  Xvfb :7 -ac -screen 0 1024x768x24 &gt; /dev/null 2&gt;&amp;1 &amp;
