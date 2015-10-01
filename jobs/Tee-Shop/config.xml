@@ -49,6 +49,10 @@ rsync -r --delete . $VHOST
 mysql -uroot -e &quot;DROP DATABASE \`tee-shop\`&quot; || true
 mysql -uroot -e &quot;CREATE DATABASE \`tee-shop\`&quot;
 
+# Make the build folder 
+rm  build -rf || true
+mkdir build 
+
 # Composer install
 cd $VHOST
 
@@ -58,10 +62,6 @@ mv magento/app/etc/dev.install.xml magento/app/etc/install.xml
 
 # Install &amp; migrate
 ./deploy.sh
-
-# Make the build folder 
-rm  build -rf || true
-mkdir build 
 
 # Clean up old Selenium processes
 pkill -f selenium-server 2&gt;&amp;1 || true
@@ -75,12 +75,7 @@ java -jar ./selenium/selenium-server-standalone-2.37.0.jar -Dwebdriver.chrome.dr
 sleep 2
 
 # Run behat tests
-./vendor/behat/behat/bin/behat --profile ci || true
-
-# Move build files back to workspace
-cd $WORKSPACE
-rm build -rf || true
-mv $VHOST/build .</command>
+./vendor/behat/behat/bin/behat --profile ci</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
