@@ -53,6 +53,10 @@ mysql -uroot -e &quot;CREATE DATABASE \`tee-shop\`&quot;
 # Composer install
 cd $VHOST
 
+## clean up old processes
+pkill -f selenium-server 2&gt;&amp;1 || true
+pkill Xvfb 2&gt;&amp;1 || true
+
 # Delete old test xmls files
  rm -f TEST-*.xml
 
