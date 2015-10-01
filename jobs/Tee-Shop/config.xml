@@ -49,7 +49,6 @@ rsync -r --delete . $VHOST
 mysql -uroot -e &quot;DROP DATABASE \`tee-shop\`&quot; || true
 mysql -uroot -e &quot;CREATE DATABASE \`tee-shop\`&quot;
 
-
 # Composer install
 cd $VHOST
 
@@ -60,7 +59,7 @@ mv magento/app/etc/dev.install.xml magento/app/etc/install.xml
 # Install &amp; migrate
 ./deploy.sh
 
-## Make the build folder 
+# Make the build folder 
 rm  build -rf || true
 mkdir build 
 
@@ -69,14 +68,14 @@ pkill -f selenium-server 2&gt;&amp;1 || true
 pkill Xvfb 2&gt;&amp;1 || true
 
 # Run Selenium Server
- export DISPLAY=:7.0
- Xvfb :7 -ac -screen 0 1024x768x24 &gt; /dev/null 2&gt;&amp;1 &amp;
- sleep 2
-  java -jar ./selenium/selenium-server-standalone-2.37.0.jar -Dwebdriver.chrome.driver=&quot;/usr/bin/chromedriver&quot; &gt; /dev/null 2&gt;&amp;1 &amp;
- sleep 2
+export DISPLAY=:7.0
+Xvfb :7 -ac -screen 0 1024x768x24 &gt; /dev/null 2&gt;&amp;1 &amp;
+sleep 2
+java -jar ./selenium/selenium-server-standalone-2.37.0.jar -Dwebdriver.chrome.driver=&quot;/usr/bin/chromedriver&quot; &gt; /dev/null 2&gt;&amp;1 &amp;
+sleep 2
 
 # Run behat tests
-./vendor/behat/behat/bin/behat --profile ci
+./vendor/behat/behat/bin/behat --profile ci || true
 
 # Move build files back to workspace
 cd $WORKSPACE
