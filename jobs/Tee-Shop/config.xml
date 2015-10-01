@@ -68,11 +68,11 @@ pkill -f selenium-server 2&gt;&amp;1 || true
 pkill Xvfb 2&gt;&amp;1 || true
 
 # Run Selenium Server
-export DISPLAY=:7.0
-Xvfb :7 -ac -screen 0 1024x768x24 &gt; /dev/null 2&gt;&amp;1 &amp;
-sleep 2
+export DISPLAY=:9.0
+Xvfb :9 -ac -screen 0 1024x768x24 &gt; /dev/null 2&gt;&amp;1 &amp;
+sleep 3
 java -jar ./selenium/selenium-server-standalone-2.37.0.jar -Dwebdriver.chrome.driver=&quot;/usr/bin/chromedriver&quot; &gt; /dev/null 2&gt;&amp;1 &amp;
-sleep 2
+sleep 3
 
 # Run behat tests
 ./vendor/behat/behat/bin/behat --profile ci</command>
