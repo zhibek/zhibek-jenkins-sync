@@ -77,7 +77,11 @@ pkill Xvfb 2&gt;&amp;1 || true
 
 # Run behat tests
 ./vendor/behat/behat/bin/behat --profile ci
-</command>
+
+# Move build files back to workspace
+cd -
+rm  build -rf || true
+mv $VHOST/build .</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
