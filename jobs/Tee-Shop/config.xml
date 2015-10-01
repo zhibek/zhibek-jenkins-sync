@@ -73,7 +73,7 @@ pkill Xvfb 2&gt;&amp;1 || true
  sleep 2
 
 # Run behat tests
-./vendor/behat/behat/bin/behat  
+./vendor/behat/behat/bin/behat --profile ci
 </command>
     </hudson.tasks.Shell>
   </builders>
