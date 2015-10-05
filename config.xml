@@ -133,15 +133,7 @@
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
       </jobNames>
       <jobFilters/>
-      <columns>
-        <hudson.views.StatusColumn/>
-        <hudson.views.WeatherColumn/>
-        <hudson.views.JobColumn/>
-        <hudson.views.LastSuccessColumn/>
-        <hudson.views.LastFailureColumn/>
-        <hudson.views.LastDurationColumn/>
-        <hudson.views.BuildButtonColumn/>
-      </columns>
+      <columns/>
       <recurse>false</recurse>
       <useCssStyle>false</useCssStyle>
       <includeStdJobList>false</includeStdJobList>
@@ -151,7 +143,7 @@
       <rightPortlets/>
       <topPortlets>
         <hudson.plugins.view.dashboard.core.IframePortlet>
-          <id>dashboard_portlet_27410</id>
+          <id>dashboard_portlet_22841</id>
           <name>Iframe Portlet</name>
           <iframeSource>http://zhibek.com/ci.html</iframeSource>
           <effectiveUrl>http://zhibek.com/ci.html</effectiveUrl>
