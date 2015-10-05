@@ -149,7 +149,15 @@
       <rightPortletWidth>50%</rightPortletWidth>
       <leftPortlets/>
       <rightPortlets/>
-      <topPortlets/>
+      <topPortlets>
+        <hudson.plugins.view.dashboard.core.IframePortlet>
+          <id>dashboard_portlet_27410</id>
+          <name>Iframe Portlet</name>
+          <iframeSource>http://zhibek.com/ci.html</iframeSource>
+          <effectiveUrl>http://zhibek.com/ci.html</effectiveUrl>
+          <divStyle>width:100%;height:1000px;</divStyle>
+        </hudson.plugins.view.dashboard.core.IframePortlet>
+      </topPortlets>
       <bottomPortlets/>
     </hudson.plugins.view.dashboard.Dashboard>
   </views>
