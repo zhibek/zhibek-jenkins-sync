@@ -144,10 +144,10 @@
       <rightPortlets/>
       <topPortlets>
         <hudson.plugins.view.dashboard.core.IframePortlet>
-          <id>dashboard_portlet_7562</id>
+          <id>dashboard_portlet_17055</id>
           <name>Iframe Portlet</name>
-          <iframeSource>/view/Build%20/job/FROST-build/ws/features/status.html</iframeSource>
-          <effectiveUrl>/view/Build%20/job/FROST-build/ws/features/status.html</effectiveUrl>
+          <iframeSource>http://zhibek.com/ci.html</iframeSource>
+          <effectiveUrl>http://zhibek.com/ci.html</effectiveUrl>
           <divStyle>width:100%;height:1000px;</divStyle>
         </hudson.plugins.view.dashboard.core.IframePortlet>
       </topPortlets>
