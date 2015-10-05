@@ -144,16 +144,12 @@
       <rightPortlets/>
       <topPortlets>
         <hudson.plugins.view.dashboard.core.IframePortlet>
-          <id>dashboard_portlet_23579</id>
+          <id>dashboard_portlet_13068</id>
           <name>Iframe Portlet</name>
           <iframeSource>http://zhibek.com/ci.html</iframeSource>
           <effectiveUrl>http://zhibek.com/ci.html</effectiveUrl>
-          <divStyle>width:100%;height:1000px;</divStyle>
+          <divStyle>width:100%;height:100%;</divStyle>
         </hudson.plugins.view.dashboard.core.IframePortlet>
-        <hudson.plugins.view.dashboard.stats.StatBuilds>
-          <id>dashboard_portlet_19533</id>
-          <name>Build statistics</name>
-        </hudson.plugins.view.dashboard.stats.StatBuilds>
       </topPortlets>
       <bottomPortlets/>
     </hudson.plugins.view.dashboard.Dashboard>
