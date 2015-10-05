@@ -137,21 +137,21 @@
       <columns/>
       <recurse>false</recurse>
       <useCssStyle>false</useCssStyle>
-      <includeStdJobList>true</includeStdJobList>
+      <includeStdJobList>false</includeStdJobList>
       <leftPortletWidth>50%</leftPortletWidth>
       <rightPortletWidth>50%</rightPortletWidth>
       <leftPortlets/>
       <rightPortlets/>
       <topPortlets>
         <hudson.plugins.view.dashboard.core.IframePortlet>
-          <id>dashboard_portlet_17730</id>
+          <id>dashboard_portlet_23579</id>
           <name>Iframe Portlet</name>
           <iframeSource>http://zhibek.com/ci.html</iframeSource>
           <effectiveUrl>http://zhibek.com/ci.html</effectiveUrl>
           <divStyle>width:100%;height:1000px;</divStyle>
         </hudson.plugins.view.dashboard.core.IframePortlet>
         <hudson.plugins.view.dashboard.stats.StatBuilds>
-          <id>dashboard_portlet_710</id>
+          <id>dashboard_portlet_19533</id>
           <name>Build statistics</name>
         </hudson.plugins.view.dashboard.stats.StatBuilds>
       </topPortlets>
