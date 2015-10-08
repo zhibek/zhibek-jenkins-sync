@@ -60,6 +60,10 @@ cd $VHOST
 rm magento/app/etc/install.xml 
 mv magento/app/etc/dev.install.xml magento/app/etc/install.xml
 
+# Set permissions
+chmod 0777 +R magento/var
+chmod 0777 +R magento/media
+
 # Install &amp; migrate
 ./deploy.sh
 
