@@ -60,12 +60,12 @@ cd $VHOST
 rm magento/app/etc/install.xml 
 mv magento/app/etc/dev.install.xml magento/app/etc/install.xml
 
+# Install &amp; migrate
+./deploy.sh
+
 # Set permissions
 chmod -R 0777 magento/var
 chmod -R 0777 magento/media
-
-# Install &amp; migrate
-./deploy.sh
 
 # Clean up old Selenium processes
 pkill -f selenium-server 2&gt;&amp;1 || true
