@@ -83,7 +83,7 @@ sleep 3
       <resultOnFailure>FAILURE</resultOnFailure>
     </com.cloudbees.jenkins.GitHubCommitNotifier>
     <hudson.tasks.Mailer plugin="mailer@1.11">
-      <recipients></recipients>
+      <recipients>adham.saad@camelcasetech.com</recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
       <sendToIndividuals>true</sendToIndividuals>
     </hudson.tasks.Mailer>
