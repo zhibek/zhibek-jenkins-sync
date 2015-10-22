@@ -63,9 +63,6 @@ mv magento/app/etc/dev.install.xml magento/app/etc/install.xml
 # Install &amp; migrate
 ./deploy.sh
 
-git checkout magento;
-./bin/migrate.sh migrate;
-
 # Clean up old Selenium processes
 pkill -f selenium-server 2&gt;&amp;1 || true
 pkill Xvfb 2&gt;&amp;1 || true
