@@ -4,7 +4,9 @@
   <description></description>
   <properties>
     <hudson.model.PaneStatusProperties>
-      <collapsed/>
+      <collapsed>
+        <string>buildHistory</string>
+      </collapsed>
     </hudson.model.PaneStatusProperties>
     <jenkins.security.ApiTokenProperty>
       <apiToken>hlLBZFn7WmGf3C9CefC4V/rNq8U++9y6Ow+csDRlrCyn0A0caVooQfIquGg8ul3g</apiToken>
