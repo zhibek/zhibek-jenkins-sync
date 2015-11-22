@@ -23,7 +23,7 @@
       <notifyBackToNormal>true</notifyBackToNormal>
       <notifyRepeatedFailure>true</notifyRepeatedFailure>
       <includeTestSummary>true</includeTestSummary>
-      <showCommitList>false</showCommitList>
+      <showCommitList>true</showCommitList>
       <includeCustomMessage>false</includeCustomMessage>
       <customMessage></customMessage>
     </jenkins.plugins.slack.SlackNotifier_-SlackJobProperty>
