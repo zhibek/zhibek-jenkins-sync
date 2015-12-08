@@ -66,7 +66,7 @@ cd $VHOST
 
 APPLICATION_ENV=development ./deploy.sh
 
-./bin/behat --profile development</command>
+APPLICATION_ENV=development ./bin/behat --profile development</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
