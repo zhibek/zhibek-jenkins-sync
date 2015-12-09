@@ -64,6 +64,8 @@ rsync -r --delete . $VHOST
 
 cd $VHOST
 
+chmod -R 777 data/
+
 APPLICATION_ENV=development ./deploy.sh
 
 APPLICATION_ENV=development ./bin/behat --profile development</command>
