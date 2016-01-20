@@ -16,8 +16,8 @@
       <notifyAborted>false</notifyAborted>
       <notifyNotBuilt>false</notifyNotBuilt>
       <notifyUnstable>false</notifyUnstable>
-      <notifyFailure>true</notifyFailure>
-      <notifyBackToNormal>true</notifyBackToNormal>
+      <notifyFailure>false</notifyFailure>
+      <notifyBackToNormal>false</notifyBackToNormal>
       <notifyRepeatedFailure>true</notifyRepeatedFailure>
       <includeTestSummary>true</includeTestSummary>
       <showCommitList>true</showCommitList>
