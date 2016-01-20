@@ -10,7 +10,7 @@
     <jenkins.plugins.slack.SlackNotifier_-SlackJobProperty plugin="slack@1.8">
       <teamDomain></teamDomain>
       <token></token>
-      <room>#attendance-project</room>
+      <room>#thinkcsi-projects</room>
       <startNotification>false</startNotification>
       <notifySuccess>false</notifySuccess>
       <notifyAborted>false</notifyAborted>
@@ -18,9 +18,9 @@
       <notifyUnstable>false</notifyUnstable>
       <notifyFailure>false</notifyFailure>
       <notifyBackToNormal>false</notifyBackToNormal>
-      <notifyRepeatedFailure>true</notifyRepeatedFailure>
-      <includeTestSummary>true</includeTestSummary>
-      <showCommitList>true</showCommitList>
+      <notifyRepeatedFailure>false</notifyRepeatedFailure>
+      <includeTestSummary>false</includeTestSummary>
+      <showCommitList>false</showCommitList>
       <includeCustomMessage>false</includeCustomMessage>
       <customMessage></customMessage>
     </jenkins.plugins.slack.SlackNotifier_-SlackJobProperty>
