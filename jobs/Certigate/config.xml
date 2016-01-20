@@ -5,7 +5,7 @@
   <keepDependencies>false</keepDependencies>
   <properties>
     <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.13.3">
-      <projectUrl>https://github.com/camelcasetechsd/attendance-system.git/</projectUrl>
+      <projectUrl>https://github.com/camelcasetechsd/certigate.git/</projectUrl>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
     <jenkins.plugins.slack.SlackNotifier_-SlackJobProperty plugin="slack@1.8">
       <teamDomain></teamDomain>
@@ -29,7 +29,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>git@github.com:camelcasetechsd/attendance-system.git</url>
+        <url>git@github.com:camelcasetechsd/certigate.git</url>
         <credentialsId>d3aaa78c-2433-4c62-94c1-78b496a10d7a</credentialsId>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
@@ -58,23 +58,20 @@
     <hudson.tasks.Shell>
       <command>PATH=$PATH:/usr/local/bin
 
-VHOST=/var/www/vhosts/attendance.camelcasetech.com
+VHOST=/var/www/vhosts/certigate.camelcasetech.com
 
 rsync -r --delete . $VHOST
 
 cd $VHOST
 
-chmod -R 777 data/
-chmod -R 777 public/upload/
 
 APPLICATION_ENV=development ./deploy.sh
-
-APPLICATION_ENV=development ./bin/behat --profile development</command>
+</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
     <hudson.tasks.Mailer plugin="mailer@1.11">
-      <recipients>adham.saad@camelcasetech.com ahmed.elbougha@camelcasetech.com john.levermore@camelcasetech.com</recipients>
+      <recipients>adham.saad@camelcasetech.com</recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
       <sendToIndividuals>true</sendToIndividuals>
     </hudson.tasks.Mailer>
