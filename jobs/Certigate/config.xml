@@ -63,7 +63,8 @@ VHOST=/var/www/vhosts/certigate.camelcasetech.com
 rsync -r --delete . $VHOST
 
 cd $VHOST
-
+chmod -R 777 data/
+chmod -R 777 public/upload/
 
 APPLICATION_ENV=development ./deploy.sh
 </command>
