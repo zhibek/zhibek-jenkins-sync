@@ -66,6 +66,8 @@ cd $VHOST
 chmod -R -f 777 logs/
 chmod -R -f 777 data/
 chmod -R -f 777 public/upload/
+chmod -R -f 777 public/estore/image
+chmod -R -f 777 public/estore/system/storage
 
 APPLICATION_ENV=development ./deploy.sh
 </command>
