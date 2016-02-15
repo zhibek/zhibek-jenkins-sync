@@ -60,11 +60,9 @@
 
 VHOST=/var/www/vhosts/certigate.camelcasetech.com
 
-cd $VHOST
-sudo chmod -R -f 777 public/upload/
-
 rsync -r --delete . $VHOST
 
+cd $VHOST
 chmod -R -f 777 logs/
 chmod -R -f 777 data/
 chmod -R -f 777 public/upload/
