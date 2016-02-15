@@ -60,7 +60,7 @@
 
 VHOST=/var/www/vhosts/certigate.camelcasetech.com
 
-rsync -a --no-perms --omit-dir-times -r --delete . $VHOST
+rsync -a --no-perms -r --delete . $VHOST
 
 cd $VHOST
 chmod -R -f 777 logs/
