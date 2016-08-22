@@ -68,6 +68,7 @@ chmod -R -f 777 data/
 chmod -R -f 777 public/upload/
 chmod -R -f 777 public/estore/image
 chmod -R -f 777 public/estore/system/storage
+chmod -f 777 db/staticContent/pages.json
 
 APPLICATION_ENV=development ./deploy.sh
 </command>
