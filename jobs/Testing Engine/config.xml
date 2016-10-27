@@ -30,7 +30,6 @@
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
         <url>https://github.com/camelcasetechsd/testing-engine.git/</url>
-        <credentialsId>5d7e3a9c-26de-41d3-aae8-b7867711d0e1</credentialsId>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
