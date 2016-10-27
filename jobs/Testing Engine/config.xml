@@ -62,6 +62,8 @@ cd $VHOST
 git reset --hard HEAD
 git pull 
 
+composer install ;
+yarn ;
 php artisan deploy development 
 
 </command>
