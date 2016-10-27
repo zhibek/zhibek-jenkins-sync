@@ -63,10 +63,6 @@ cd $VHOST
 git reset --hard HEAD
 git pull 
 
-# fixing permissions
-chmod 777 bootstrap/cache/ -R
-chmod 777 storage/* -R
-
 # fixing latest dependencies
 composer install ;
 npm install 
