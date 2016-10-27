@@ -57,16 +57,22 @@
       <command>PATH=$PATH:/usr/local/bin
 
 VHOST=/var/www/vhosts/testing-engine.camelcasetech.com
-
 cd $VHOST
+
+# pulling latest code
 git reset --hard HEAD
 git pull 
 
-composer install ;
-yarn ;
-php artisan deploy development 
+# fixing permissions
+sudo chmod 777 bootstrap/cache/ -R
+sudo chmod 777 storage/* -R
 
-</command>
+# fixing latest dependencies
+composer install ;
+npm install 
+
+# migrate and seed
+php artisan deploy development </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
