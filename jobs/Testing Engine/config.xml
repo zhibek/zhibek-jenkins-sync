@@ -58,7 +58,11 @@
 
 VHOST=/var/www/vhosts/testing-engine.camelcasetech.com
 
-rsync -r --delete . $VHOST
+cd $VHOST
+git reset --hard HEAD
+git pull 
+
+php artisan deploy development 
 
 </command>
     </hudson.tasks.Shell>
