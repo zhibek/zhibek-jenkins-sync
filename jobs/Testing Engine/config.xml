@@ -65,7 +65,7 @@ git pull
 
 # fixing latest dependencies
 composer install ;
-npm install 
+yarn;
 
 # migrate and seed
 php artisan deploy development </command>
