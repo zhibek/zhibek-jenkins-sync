@@ -81,6 +81,18 @@ php artisan test:behavior</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
+    <org.jenkinsci.plugins.cloverphp.CloverPHPPublisher plugin="cloverphp@0.5">
+      <publishHtmlReport>true</publishHtmlReport>
+      <reportDir>build/unit-testing/coverage/</reportDir>
+      <xmlLocation>build/unit-testing/coverage.xml</xmlLocation>
+      <disableArchiving>false</disableArchiving>
+      <healthyTarget>
+        <methodCoverage>70</methodCoverage>
+        <statementCoverage>80</statementCoverage>
+      </healthyTarget>
+      <unhealthyTarget/>
+      <failingTarget/>
+    </org.jenkinsci.plugins.cloverphp.CloverPHPPublisher>
     <hudson.tasks.Mailer plugin="mailer@1.11">
       <recipients>adham.saad@camelcasetech.com ahmed.elbougha@camelcasetech.com ahmed.reda@camelcasetech.com </recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
