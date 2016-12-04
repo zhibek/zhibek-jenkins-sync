@@ -94,7 +94,7 @@ php artisan test:behavior</command>
       <failingTarget/>
     </org.jenkinsci.plugins.cloverphp.CloverPHPPublisher>
     <hudson.tasks.Mailer plugin="mailer@1.11">
-      <recipients>adham.saad@camelcasetech.com ahmed.elbougha@camelcasetech.com ahmed.reda@camelcasetech.com </recipients>
+      <recipients>adham.saad@camelcasetech.com ahmed.elbougha@camelcasetech.com</recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
       <sendToIndividuals>false</sendToIndividuals>
     </hudson.tasks.Mailer>
