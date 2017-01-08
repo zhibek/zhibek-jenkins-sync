@@ -71,13 +71,13 @@ yarn;
 gulp
 
 # migrate and seed
-APPLICATION_ENV=&quot;development&quot; php artisan deploy:development 
+APP_ENV=&quot;development&quot; php artisan deploy:development 
 
 # run unit test
-APPLICATION_ENV=&quot;development&quot; php artisan test:unit
+APP_ENV=&quot;development&quot; php artisan test:unit
 
 # run behavior test
-APPLICATION_ENV=&quot;development&quot; php artisan test:behavior</command>
+APP_ENV=&quot;development&quot; php artisan test:behavior</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
