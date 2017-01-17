@@ -59,12 +59,12 @@
 VHOST=/var/www/vhosts/testing-engine.camelcasetech.com
 cd $VHOST
 
-# going down
-APP_ENV=&quot;development&quot; php artisan down
-
 # pulling latest code
 git reset --hard HEAD
 git pull 
+
+# going down
+APP_ENV=&quot;development&quot; php artisan down
 
 # fixing latest dependencies
 composer install ;
