@@ -66,9 +66,6 @@ APP_ENV=&quot;development&quot; php artisan down
 git reset --hard HEAD
 git pull 
 
-# fix permissions 
-chmod 777 storage/logs/application.log
-
 # fixing latest dependencies
 composer install ;
 yarn;
