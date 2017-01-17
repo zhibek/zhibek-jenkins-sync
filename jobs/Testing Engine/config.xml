@@ -59,6 +59,9 @@
 VHOST=/var/www/vhosts/testing-engine.camelcasetech.com
 cd $VHOST
 
+# going down
+APP_ENV=&quot;development&quot; php artisan down
+
 # pulling latest code
 git reset --hard HEAD
 git pull 
@@ -80,7 +83,10 @@ APP_ENV=&quot;development&quot; php artisan deploy:development
 APP_ENV=&quot;development&quot; php artisan test:unit
 
 # run behavior test
-APP_ENV=&quot;development&quot; php artisan test:behavior</command>
+APP_ENV=&quot;development&quot; php artisan test:behavior
+
+# going up
+APP_ENV=&quot;development&quot; php artisan up</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
