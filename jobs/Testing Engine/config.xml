@@ -63,6 +63,9 @@ cd $VHOST
 git reset --hard HEAD
 git pull 
 
+# fix permissions 
+chmod 777 storage/logs/application.log
+
 # fixing latest dependencies
 composer install ;
 yarn;
