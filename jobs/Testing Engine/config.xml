@@ -79,14 +79,14 @@ gulp
 # migrate and seed
 APP_ENV=&quot;development&quot; php artisan deploy:development 
 
+# going up
+APP_ENV=&quot;development&quot; php artisan up
+
 # run unit test
 APP_ENV=&quot;development&quot; php artisan test:unit
 
 # run behavior test
-APP_ENV=&quot;development&quot; php artisan test:behavior
-
-# going up
-APP_ENV=&quot;development&quot; php artisan up</command>
+APP_ENV=&quot;development&quot; php artisan test:behavior</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
