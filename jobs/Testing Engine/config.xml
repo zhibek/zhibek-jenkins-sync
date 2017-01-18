@@ -76,6 +76,10 @@ gulp
 # migrate and seed
 APP_ENV=&quot;development&quot; php artisan deploy:development 
 
+# removing application.log
+echo &quot;&quot; &gt; storage/logs/application.log
+chmod -f 777 storage/logs/application.log
+
 # going up
 APP_ENV=&quot;development&quot; php artisan up
 
