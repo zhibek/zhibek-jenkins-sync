@@ -76,9 +76,6 @@ gulp
 # migrate and seed
 APP_ENV=&quot;development&quot; php artisan deploy:development 
 
-# removing application.log
-chmod -f 777 storage/logs/application.log
-
 # going up
 APP_ENV=&quot;development&quot; php artisan up
 
@@ -89,7 +86,10 @@ APP_ENV=&quot;development&quot; php artisan deploy:test
 APP_ENV=&quot;development&quot; php artisan test:unit
 
 # run behavior test
-APP_ENV=&quot;development&quot; php artisan test:behavior</command>
+APP_ENV=&quot;development&quot; php artisan test:behavior
+
+# removing application.log
+rm -f storage/logs/application.log</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
