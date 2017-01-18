@@ -79,6 +79,9 @@ APP_ENV=&quot;development&quot; php artisan deploy:development
 # going up
 APP_ENV=&quot;development&quot; php artisan up
 
+# Deploy test database 
+APP_ENV=&quot;development&quot; php artisan deploy:test
+
 # run unit test
 APP_ENV=&quot;development&quot; php artisan test:unit
 
