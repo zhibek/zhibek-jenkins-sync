@@ -94,7 +94,7 @@ rm -f storage/logs/application.log</command>
   </builders>
   <publishers>
     <org.jenkinsci.plugins.cloverphp.CloverPHPPublisher plugin="cloverphp@0.5">
-      <publishHtmlReport>true</publishHtmlReport>
+      <publishHtmlReport>false</publishHtmlReport>
       <reportDir>build/unit-testing/coverage/</reportDir>
       <xmlLocation>build/unit-testing/coverage.xml</xmlLocation>
       <disableArchiving>false</disableArchiving>
