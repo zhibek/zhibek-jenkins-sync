@@ -63,6 +63,9 @@ cd $VHOST
 git reset --hard HEAD
 git pull 
 
+# permissions 
+chmod -R -f 777 storage/ 
+
 # going down
 APP_ENV=&quot;development&quot; php artisan down
 
