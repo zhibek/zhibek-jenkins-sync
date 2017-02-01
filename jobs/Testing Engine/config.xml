@@ -63,15 +63,15 @@ cd $VHOST
 git reset --hard HEAD
 git pull  
 
-# going down
-APP_ENV=&quot;development&quot; php artisan down
-
 # fixing latest dependencies
 composer install ;
 yarn;
 
 # process gulp
 gulp
+
+# going down
+APP_ENV=&quot;development&quot; php artisan down
 
 # migrate and seed
 APP_ENV=&quot;development&quot; php artisan deploy:development 
