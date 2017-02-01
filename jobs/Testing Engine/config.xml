@@ -58,13 +58,12 @@
 
 VHOST=/var/www/vhosts/testing-engine.camelcasetech.com
 cd $VHOST
+# permissions 
+chmod -R -f 777 storage/
 
 # pulling latest code
 git reset --hard HEAD
-git pull 
-
-# permissions 
-chmod -R -f 777 storage/ 
+git pull  
 
 # going down
 APP_ENV=&quot;development&quot; php artisan down
