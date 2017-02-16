@@ -89,7 +89,10 @@ APP_ENV=&quot;development&quot; php artisan tests:unit
 APP_ENV=&quot;development&quot; php artisan tests:behavior
 
 # removing application.log
-rm -f storage/logs/application.log</command>
+rm -f storage/logs/application.log
+
+# create downloads dir
+mkdir desktop/downloads -p --mode=0777</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
