@@ -63,12 +63,12 @@ VHOST=/var/www/vhosts/certigate-acceptance.camelcasetech.com
 rsync -r --delete . $VHOST
 
 cd $VHOST
-chmod -R -f 777 logs/
-chmod -R -f 777 data/
-chmod -R -f 777 public/upload/
-chmod -R -f 777 public/estore/image
-chmod -R -f 777 public/estore/system/storage
-chmod -f 777 db/staticContent/pages.json
+# chmod -R -f 777 logs/
+# chmod -R -f 777 data/
+# chmod -R -f 777 public/upload/
+# chmod -R -f 777 public/estore/image
+# chmod -R -f 777 public/estore/system/storage
+# chmod -f 777 db/staticContent/pages.json
 
 APPLICATION_ENV=acceptance ./deploy.sh
 </command>
