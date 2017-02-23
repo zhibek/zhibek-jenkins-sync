@@ -92,7 +92,14 @@ APP_ENV=&quot;development&quot; php artisan tests:behavior
 rm -f storage/logs/application.log
 
 # create downloads dir
-mkdir desktop/downloads -p --mode=0777</command>
+mkdir desktop/downloads -p --mode=0777
+
+# build desktop app 
+cd $VHOST/desktop/express-app
+yarn 
+cd $VHOST/desktop/electron-app
+yarn
+npm build:linux</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
