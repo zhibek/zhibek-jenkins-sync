@@ -95,11 +95,11 @@ rm -f storage/logs/application.log
 mkdir desktop/downloads -p --mode=0777
 
 # build desktop app 
-cd $VHOST/desktop/express-app
-yarn 
-cd $VHOST/desktop/electron-app
-yarn
-npm run build:linux</command>
+# cd $VHOST/desktop/express-app
+# yarn 
+# cd $VHOST/desktop/electron-app
+# yarn
+# npm run build:linux</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
