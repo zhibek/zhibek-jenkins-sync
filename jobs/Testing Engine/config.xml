@@ -99,7 +99,7 @@ cd $VHOST/desktop/express-app
 yarn 
 cd $VHOST/desktop/electron-app
 yarn
-npm build:linux</command>
+npm run build:linux</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
