@@ -74,7 +74,7 @@ gulp
 APP_ENV=&quot;development&quot; php artisan down
 
 # migrate and seed
-APP_ENV=&quot;development&quot; php artisan deploy:development --rollback
+APP_ENV=&quot;development&quot; php artisan deploy:development
 
 # going up
 APP_ENV=&quot;development&quot; php artisan up
