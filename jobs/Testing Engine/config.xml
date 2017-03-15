@@ -86,7 +86,7 @@ APP_ENV=&quot;development&quot; php artisan deploy:test
 APP_ENV=&quot;development&quot; php artisan tests:unit
 
 # run behavior test
-APP_ENV=&quot;development&quot; php artisan tests:behavior
+# APP_ENV=&quot;development&quot; php artisan tests:behavior
 
 # removing application.log
 rm -f storage/logs/application.log
