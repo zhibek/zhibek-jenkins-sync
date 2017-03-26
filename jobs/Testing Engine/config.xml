@@ -7,6 +7,9 @@
     <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.13.3">
       <projectUrl>https://github.com/camelcasetechsd/testing-engine.git/</projectUrl>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
+    <org.jenkinsci.plugins.gogs.GogsProjectProperty plugin="gogs-webhook@1.0.9">
+      <gogsSecret>testing-engine</gogsSecret>
+    </org.jenkinsci.plugins.gogs.GogsProjectProperty>
     <jenkins.plugins.slack.SlackNotifier_-SlackJobProperty plugin="slack@1.8">
       <teamDomain></teamDomain>
       <token></token>
