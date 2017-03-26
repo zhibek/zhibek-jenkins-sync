@@ -32,7 +32,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>git@github.com:camelcasetechsd/testing-engine.git</url>
+        <url>gogs@git.camelcasetech.com:camelCase/testing-engine.git</url>
         <credentialsId>d3aaa78c-2433-4c62-94c1-78b496a10d7a</credentialsId>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
