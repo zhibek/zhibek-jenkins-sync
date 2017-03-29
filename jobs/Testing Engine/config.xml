@@ -65,6 +65,9 @@
 VHOST=/var/www/vhosts/testing-engine.camelcasetech.com
 cd $VHOST
 
+## important permissions
+chmod 0777 storage/logs -R
+
 # pulling latest code
 git reset --hard HEAD
 git pull  
