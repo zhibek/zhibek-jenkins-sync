@@ -7,6 +7,9 @@
     <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.13.3">
       <projectUrl>https://github.com/camelcasetechsd/certigate.git/</projectUrl>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
+    <org.jenkinsci.plugins.gogs.GogsProjectProperty plugin="gogs-webhook@1.0.9">
+      <gogsSecret>certigate</gogsSecret>
+    </org.jenkinsci.plugins.gogs.GogsProjectProperty>
     <jenkins.plugins.slack.SlackNotifier_-SlackJobProperty plugin="slack@1.8">
       <teamDomain></teamDomain>
       <token></token>
@@ -29,7 +32,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>git@github.com:camelcasetechsd/certigate.git</url>
+        <url>gogs@git.camelcasetech.com:camelCase/certigate.git</url>
         <credentialsId>d3aaa78c-2433-4c62-94c1-78b496a10d7a</credentialsId>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
