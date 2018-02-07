@@ -6,6 +6,12 @@
     <hudson.model.PaneStatusProperties>
       <collapsed/>
     </hudson.model.PaneStatusProperties>
+    <jenkins.security.LastGrantedAuthoritiesProperty>
+      <roles>
+        <string>authenticated</string>
+      </roles>
+      <timestamp>1443694277096</timestamp>
+    </jenkins.security.LastGrantedAuthoritiesProperty>
     <jenkins.security.ApiTokenProperty>
       <apiToken>hlLBZFn7WmGf3C9CefC4V/rNq8U++9y6Ow+csDRlrCyn0A0caVooQfIquGg8ul3g</apiToken>
     </jenkins.security.ApiTokenProperty>
@@ -28,7 +34,7 @@
       </views>
     </hudson.model.MyViewsProperty>
     <hudson.security.HudsonPrivateSecurityRealm_-Details>
-      <passwordHash>#jbcrypt:$2a$10$73yJJN052UeYeunbkYZq.OML/3lMU2aC.HRhr1O4oz/UZQVWo1Jdm</passwordHash>
+      <passwordHash>#jbcrypt:$2a$10$llvCkSZveXNhVCqjqXBoA./KqTae1y.chqd8/nH/iam44jfZNXwm.</passwordHash>
     </hudson.security.HudsonPrivateSecurityRealm_-Details>
     <org.jenkinsci.main.modules.cli.auth.ssh.UserPropertyImpl>
       <authorizedKeys></authorizedKeys>
@@ -36,11 +42,5 @@
     <hudson.search.UserSearchProperty>
       <insensitiveSearch>false</insensitiveSearch>
     </hudson.search.UserSearchProperty>
-    <jenkins.security.LastGrantedAuthoritiesProperty>
-      <roles>
-        <string>authenticated</string>
-      </roles>
-      <timestamp>1443694277096</timestamp>
-    </jenkins.security.LastGrantedAuthoritiesProperty>
   </properties>
 </user>
